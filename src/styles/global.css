@@ -1,0 +1,212 @@
+@import './theme.css';
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: #0b1714;
+  color: var(--sp-green);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow: hidden;
+}
+
+/* ---------- Deck stage ---------- */
+.deck {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(130% 130% at 50% 0%, #11201b 0%, #0b1714 60%, #070f0d 100%);
+}
+
+/* The 16:9 canvas, scaled via transform to fill the viewport */
+.stage {
+  position: relative;
+  width: var(--slide-w);
+  height: var(--slide-h);
+  transform-origin: center center;
+  will-change: transform;
+}
+
+.slide-frame {
+  position: absolute;
+  inset: 0;
+  border-radius: 22px;
+  overflow: hidden;
+  background: var(--sp-paper);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.04),
+    0 40px 90px -30px rgba(0, 0, 0, 0.6);
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  padding: 92px 104px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Theme variants for full-bleed slides */
+.slide--paper { background: var(--sp-paper); color: var(--sp-green); }
+.slide--soft { background: var(--sp-paper-soft); color: var(--sp-green); }
+.slide--green { background: var(--sp-green-ink); color: var(--sp-paper); }
+.slide--yellow { background: var(--sp-yellow); color: var(--sp-green); }
+
+/* ---------- Shared slide typography ---------- */
+.eyebrow {
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--sp-muted);
+  margin: 0;
+}
+.slide--green .eyebrow { color: rgba(255, 255, 255, 0.5); }
+.slide--yellow .eyebrow { color: var(--sp-green-soft); }
+
+.display {
+  font-weight: 600;
+  line-height: 1.02;
+  letter-spacing: -0.025em;
+  margin: 0;
+  font-size: 92px;
+}
+.headline {
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin: 0;
+  font-size: 64px;
+}
+.subhead {
+  font-weight: 400;
+  font-size: 26px;
+  line-height: 1.4;
+  color: var(--sp-green-soft);
+  margin: 0;
+}
+.slide--green .subhead { color: rgba(255, 255, 255, 0.72); }
+
+.caption {
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--sp-muted);
+  margin: 0;
+}
+
+/* ---------- Highlight marker (brand) ---------- */
+.mark {
+  border-radius: 8px;
+  padding: 0.02em 0.22em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+.mark--yellow { background: var(--sp-yellow); }
+.mark--blue { background: var(--sp-blue); }
+.mark--coral { background: var(--sp-coral); }
+
+/* ---------- Chrome: top bar, progress, nav ---------- */
+.chrome-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  z-index: 40;
+}
+.progress {
+  height: 100%;
+  background: var(--sp-yellow);
+  transition: width 0.5s var(--ease-brand);
+}
+
+.brand-mark {
+  position: absolute;
+  top: 40px;
+  left: 48px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  z-index: 30;
+}
+.brand-mark svg { display: block; }
+.brand-mark .wordmark {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.slide-no {
+  position: absolute;
+  bottom: 34px;
+  right: 48px;
+  z-index: 30;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  font-variant-numeric: tabular-nums;
+  opacity: 0.5;
+}
+
+/* Hint pills bottom-left, fade away after a few seconds */
+.nav-hint {
+  position: fixed;
+  bottom: 22px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  z-index: 60;
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 12.5px;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  transition: opacity 0.6s ease;
+}
+.kbd {
+  display: inline-grid;
+  place-items: center;
+  min-width: 22px;
+  height: 22px;
+  padding: 0 6px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 12px;
+}
+
+/* Click zones for prev / next */
+.click-zone {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 18%;
+  z-index: 50;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+}
+.click-zone--prev { left: 0; }
+.click-zone--next { right: 0; left: auto; }
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}

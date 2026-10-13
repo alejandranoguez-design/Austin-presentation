@@ -1,0 +1,25 @@
+:root {
+  /* SimplePractice brand palette */
+  --sp-green: #14332b;        /* deep pine — primary ink */
+  --sp-green-ink: #0f2a23;    /* darkest, for full-bleed dark slides */
+  --sp-green-soft: #2f5349;   /* muted green for secondary text */
+  --sp-yellow: #ffc72c;       /* signature accent */
+  --sp-yellow-deep: #e0a800;  /* yellow on yellow, subdued */
+  --sp-blue: #9fd9f0;         /* highlight */
+  --sp-coral: #f4a3a0;        /* highlight */
+  --sp-paper: #ffffff;
+  --sp-paper-soft: #faf9f5;   /* warm off-white */
+  --sp-line: #e7e4db;         /* hairlines, borders */
+  --sp-muted: #8a9b94;        /* captions, meta */
+
+  /* Typography */
+  --font-sans: 'Figtree', ui-sans-serif, system-ui, -apple-system, 'Segoe UI',
+    Roboto, Helvetica, Arial, sans-serif;
+
+  /* Slide canvas is designed on a 1280 x 720 grid and scaled to fit */
+  --slide-w: 1280px;
+  --slide-h: 720px;
+
+  /* Motion — subtle, slow, premium */
+  --ease-brand: cubic-bezier(0.22, 1, 0.36, 1);
+}
