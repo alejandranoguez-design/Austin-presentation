@@ -29,7 +29,7 @@ export default function Slide03Mess() {
           <svg
             viewBox="0 0 1095 410"
             preserveAspectRatio="xMidYMid meet"
-            style={{ width: '100%', height: '100%', overflow: 'visible' }}
+            style={{ display: 'block', width: '100%', height: '100%', overflow: 'visible' }}
           >
             {/* proposed visibility layer — translucent band the paths cross */}
             <motion.g
