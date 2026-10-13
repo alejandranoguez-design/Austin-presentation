@@ -6,8 +6,8 @@ export default function Slide09Lesson2() {
       n={2}
       accent="var(--sp-blue)"
       markClass="mark--blue"
-      headline={{ key: 'work', tail: 'while you build.' }}
-      example="Building in chat, then VS Code, meant I could watch it take shape — and course-correct in minutes, not weeks."
+      headline={{ pre: '', key: 'Iterate', tail: 'as you build.' }}
+      example="Seeing it take shape as I built meant I adjusted as I went, instead of discovering problems at the end."
     />
   )
 }

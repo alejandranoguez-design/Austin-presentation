@@ -19,17 +19,16 @@ export default function Slide11Closing() {
     >
       <motion.h2
         className="display"
-        style={{ fontSize: 96, maxWidth: 1000, lineHeight: 1.08, letterSpacing: '-0.03em' }}
+        style={{ fontSize: 84, maxWidth: 1040, lineHeight: 1.1, letterSpacing: '-0.03em' }}
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.3, duration: 0.9, ease: EASE }}
       >
-        <span style={{ color: 'var(--sp-yellow)' }}>Build</span> it.
+        <span style={{ color: 'var(--sp-yellow)' }}>Understand</span> the problem.
         <br />
-        <span style={{ color: 'var(--sp-yellow)' }}>Show</span> it.
+        <span style={{ color: 'var(--sp-yellow)' }}>Iterate</span> as you build.
         <br />
-        <span style={{ color: 'var(--sp-yellow)' }}>See</span>{' '}
-        <span style={{ color: 'rgba(255,255,255,0.62)' }}>what it shows you.</span>
+        <span style={{ color: 'var(--sp-yellow)' }}>Ask</span> for feedback early.
       </motion.h2>
 
       <motion.div

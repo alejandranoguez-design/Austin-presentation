@@ -6,8 +6,8 @@ export default function Slide08Lesson1() {
       n={1}
       accent="var(--sp-yellow)"
       markClass="mark--yellow"
-      headline={{ key: 'problem', tail: 'before you build.' }}
-      example="The detour proved it — I started in Linear, but the truth lived in Snowflake. Finding that early changed everything downstream."
+      headline={{ pre: '', key: 'Understand', tail: 'the problem first.' }}
+      example="Don’t let AI come up with a solution if you don’t understand the real problem."
     />
   )
 }

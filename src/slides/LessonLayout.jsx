@@ -29,7 +29,7 @@ export default function LessonLayout({ n, headline, example, accent = 'var(--sp-
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.15, duration: 0.8, ease: EASE }}
         >
-          {headline.pre ?? 'See the'}{' '}
+          {headline.pre === '' ? null : <>{headline.pre ?? 'See the'}{' '}</>}
           <span className={`mark ${markClass}`}>{headline.key}</span> {headline.tail}
         </motion.h2>
 
