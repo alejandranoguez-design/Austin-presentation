@@ -1,12 +1,14 @@
 import { motion } from 'framer-motion'
 import { EASE } from '../components/motion.js'
+import shot from '../assets/dashboard.webp'
 
 /*
- * 7 — The dashboard. Ideally a LIVE demo; this slide is the screenshot backup.
- * Drop a real screenshot in /src/assets and set SCREENSHOT below to use it.
- * Otherwise a clean mock dashboard renders as a safe fallback.
+ * 7 — The dashboard. Ideally a LIVE demo; the screenshot is the backup.
+ * The "Open live demo" button opens the running app. Set LIVE_DEMO_URL to change it.
+ * Set SCREENSHOT to null to fall back to the mock dashboard.
  */
-const SCREENSHOT = null // e.g. import shot from '../assets/dashboard.png'
+const SCREENSHOT = shot
+const LIVE_DEMO_URL = 'https://drive.google.com/file/d/1FtW6AwLqe7uYp-jmducm1GG0H6YEerN8/view?usp=sharing'
 
 const rows = [
   { promo: 'New-year upgrade', channel: 'Email · Iterable', status: 'Live', when: 'Now → Jan 31', tone: 'var(--sp-blue)' },
@@ -73,16 +75,54 @@ export default function Slide07Demo() {
       transition={{ duration: 0.5, ease: EASE }}
     >
       {SCREENSHOT ? (
-        <img src={SCREENSHOT} alt="Promotions dashboard" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+        <div style={{ position: 'absolute', inset: 0, background: 'var(--sp-green)', display: 'grid', placeItems: 'center' }}>
+          <img
+            src={SCREENSHOT}
+            alt="Promotions dashboard"
+            style={{
+              height: 520,
+              width: 'auto',
+              maxWidth: '86%',
+              display: 'block',
+              borderRadius: 20,
+              boxShadow: '0 40px 80px -30px rgba(0,0,0,0.6)',
+            }}
+          />
+        </div>
       ) : (
         <MockDashboard />
       )}
 
-      {/* subtle "live demo" tag, bottom-left */}
-      <div style={{ position: 'absolute', bottom: 26, left: 40, display: 'flex', alignItems: 'center', gap: 8, fontSize: 13, fontWeight: 600, letterSpacing: '0.04em', color: 'var(--sp-muted)', background: 'var(--sp-paper-soft)', padding: '7px 14px', borderRadius: 999, border: '1px solid var(--sp-line)' }}>
-        <span style={{ width: 8, height: 8, borderRadius: '50%', background: '#e5484d' }} />
-        LIVE DEMO · screenshot backup
-      </div>
+      {/* click-through to the running app */}
+      <a
+        href={LIVE_DEMO_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{
+          position: 'absolute',
+          bottom: 24,
+          left: '50%',
+          transform: 'translateX(-50%)',
+          display: 'flex',
+          alignItems: 'center',
+          gap: 12,
+          fontSize: 18,
+          fontWeight: 700,
+          letterSpacing: '0.01em',
+          color: 'var(--sp-green)',
+          background: 'var(--sp-yellow)',
+          padding: '16px 28px',
+          borderRadius: 999,
+          textDecoration: 'none',
+          boxShadow: '0 18px 36px -12px rgba(0,0,0,0.55), 0 0 0 4px rgba(255,199,44,0.25)',
+          zIndex: 10,
+        }}
+      >
+        <svg width="14" height="16" viewBox="0 0 14 16" aria-hidden="true">
+          <path d="M1 1.5v13l11-6.5z" fill="var(--sp-green)" />
+        </svg>
+        Open video of the dashboard
+      </a>
     </motion.div>
   )
 }
